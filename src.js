@@ -18,6 +18,9 @@ b) Quando o usuário clicar no botão 'share it':
 
 // 1. O programa deverá selecionar de maneira aleatória uma nova frase contida em quotes.json
 // importar o arquivo json - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import/with
+
+
+
 import data from './quotes.json' with {type:'json'}
 
 
@@ -32,8 +35,29 @@ console.log(data[id])
 
 
 let content = document.querySelector('#content');
-content.textContent = "blablablababla"
+content.textContent = "Olá Mundo!!"
 console.log(content.textContent)
+
+
+
+let mensagem = document.querySelector ('#content')
+let button = document.querySelector('#newQuote')
+button.addEventListener('click', function (){
+   let i = Math.floor(Math.random() * data.length) 
+   mensagem.innerHTML = data[i].quote
+}) 
+
+
+let x = document.querySelector('#shareTwitter')
+x.addEventListener('click', function () {
+window.location.href= `https://twitter.com/intent/tweet?text=${mensagem.value}`
+})
+
+
+
+
+
+
 
 // selecionar nó do html relacionado a mensagem  
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Document/querySelector
